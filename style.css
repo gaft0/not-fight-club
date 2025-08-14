@@ -1,0 +1,62 @@
+body {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    display: flex;
+    background-color: #000000;
+    height: 14vh;
+    width: 100%;
+}
+
+.settings {
+    height: 8vh;
+    width: 8vh;
+    margin: 0 2vh 0 14vh;
+}
+
+.character-info {
+    height: 8vh;
+    width: 8vh;
+}
+
+.fight {
+    margin: 0 0 0 40vh;
+    height: 10vh;
+    width: 35vh;
+}
+
+.menu-image {
+    display: block;
+    height: 72vh;
+    width: 100%;
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #000000;
+    height: 14vh;
+    width: 100%;
+}
+
+.rs-link {
+    font-size: 48px;
+    font-family: 'Impact', sans-serif;
+    color: #BA0D80;
+}
+
+@font-face {
+  font-family: 'Impact';
+  src: url('assets/font/Impact.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
