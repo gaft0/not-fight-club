@@ -38,6 +38,60 @@ body {
     width: 100%;
 }
 
+.register-container {
+    position: absolute;
+    background-color: #064f62;
+    border: #000000 solid 0.5vh;
+    height: 65%;
+    width: 33%;
+    margin: 3vh 0 0 120vh;
+}
+
+h1 {
+    font-size: 48px;
+    font-family: 'Impact', sans-serif;
+    color: #000000;
+    margin: 2vh 0 0 4vh;
+}
+
+h2 {
+    font-size: 36px;
+    font-family: 'Impact', sans-serif;
+    color: #000000;
+    margin: 5vh 0 0 4vh;
+}
+
+.register-name {
+    background-color: #064f62;
+    font-size: 32px;
+    font-family: 'Impact', sans-serif;
+}
+
+.avatar {
+    background-image: url("assets/player-avatar/player-avatar-1.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    aspect-ratio: 1 / 1;
+    max-width: 65%;
+    height: auto;
+    margin: -5vh 0 0 13vh;
+}
+
+.register-change {
+    position: absolute;
+    max-width: 10%;
+    height: auto;
+    margin: -30vh 0 0 4vh;
+}
+
+.register-confirm {
+    position: absolute;
+    max-width: 11.7%;
+    height: auto;
+    margin: -22vh 0 0 3.5vh;
+}
+
 .footer {
     display: flex;
     align-items: center;
@@ -52,6 +106,8 @@ body {
     font-family: 'Impact', sans-serif;
     color: #BA0D80;
 }
+
+
 
 @font-face {
   font-family: 'Impact';
