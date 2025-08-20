@@ -10,7 +10,7 @@ body {
     display: flex;
     align-items: center;
     display: flex;
-    background-color: #000000;
+    background-color: #090609;
     height: 14vh;
     width: 100vw;
 }
@@ -41,7 +41,7 @@ body {
 .register-container {
     position: absolute;
     background-color: #064f62;
-    border: #000000 solid 0.5vh;
+    border: #090609 solid 0.5vh;
     height: 65vh;
     width: 33vw;
     margin: 3vh 0 0 65vw;
@@ -50,14 +50,14 @@ body {
 h1 {
     font-size: 6vh;
     font-family: 'Impact', sans-serif;
-    color: #000000;
+    color: #090609;
     margin: 2vh 0 0 2vw;
 }
 
 h2 {
     font-size: 5vh;
     font-family: 'Impact', sans-serif;
-    color: #000000;
+    color: #090609;
     margin: 4vh 0 0 2vw;
 }
 
@@ -99,7 +99,7 @@ h2 {
     position: absolute;
     display: flex;
     background-color: #064f62;
-    border: #000000 solid 0.5vh;
+    border: #090609 solid 0.5vh;
     height: 51vh;
     width: 62vw;
     margin: 3vh 0 0 1.4vw;
@@ -153,8 +153,9 @@ h2 {
 .rs-link {
     font-size: 6vh;
     font-family: 'Impact', sans-serif;
-    color: #BA0D80;
+    color: #6A6A6A;
 }
+
 
 
 

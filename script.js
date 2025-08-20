@@ -8,6 +8,13 @@ buttonConfirm.addEventListener('click', () => {
         localStorage.setItem('name', name);
         hideRegister.style.display = 'none';
         showCharacterSelection.style.display = 'none';
+        buttonIntoFight.src = 'assets/button/into-fight.png';
+        buttonSettings.src = 'assets/button/settings.png';
+        buttonCharacterInfo.src = 'assets/button/character-info.png';
+        footerText.forEach(text => {
+            text.style.color = '#BA0D80';
+        });
+
     }
 });
 
@@ -47,11 +54,23 @@ avatar5.addEventListener('click', () => {
     actualAvatar.src = 'assets/player-avatar/player-avatar-5.png';
 })
 
+
 // Проверка регистрации
 const hideRegister = document.querySelector('.register-container');
+const buttonIntoFight = document.querySelector('.fight');
+const buttonSettings = document.querySelector('.settings');
+const buttonCharacterInfo = document.querySelector('.character-info');
+const footerText = document.querySelectorAll('.rs-link');
 
 const savedName = localStorage.getItem('name');
 if (savedName) {
     hideRegister.style.display = 'none';
     showCharacterSelection.style.display = 'none';
+    buttonIntoFight.src = 'assets/button/into-fight.png';
+    buttonSettings.src = 'assets/button/settings.png';
+    buttonCharacterInfo.src = 'assets/button/character-info.png';
+    footerText.forEach(text => {
+        text.style.color = '#BA0D80';
+    });
 }
+
