@@ -1,10 +1,13 @@
 // Ввод имени
+let name = '';
 const inputName = document.querySelector('.register-name');
 const buttonConfirm = document.querySelector('.register-confirm');
 
 buttonConfirm.addEventListener('click', () => {
-    const name = inputName.value.trim();
+    name = inputName.value.trim();
+    const avatar = actualAvatar.src;
     if (name !== '') {
+        localStorage.setItem('avatar', avatar);
         localStorage.setItem('name', name);
         hideRegister.style.display = 'none';
         showCharacterSelection.style.display = 'none';
@@ -14,7 +17,7 @@ buttonConfirm.addEventListener('click', () => {
         footerText.forEach(text => {
             text.style.color = '#BA0D80';
         });
-
+        showAvatar.src = avatar;
     }
 });
 
@@ -36,6 +39,7 @@ const actualAvatar = document.getElementById('actual-avatar');
 
 avatar1.addEventListener('click', () => {
     actualAvatar.src = 'assets/player-avatar/player-avatar-1.png';
+    showAvatar.src = savedAvatar;
 })
 
 avatar2.addEventListener('click', () => {
@@ -63,6 +67,7 @@ const buttonCharacterInfo = document.querySelector('.character-info');
 const footerText = document.querySelectorAll('.rs-link');
 
 const savedName = localStorage.getItem('name');
+const savedAvatar = localStorage.getItem('avatar');
 if (savedName) {
     hideRegister.style.display = 'none';
     showCharacterSelection.style.display = 'none';
@@ -74,3 +79,62 @@ if (savedName) {
     });
 }
 
+// Кнопки настроеек и персонажа
+const showNameSettings = document.querySelector('.text-settings');
+const windowSettings = document.querySelector('.window-settings');
+buttonSettings.addEventListener('click', () => {
+    if (windowCharacterInfo.style.display == 'block') {
+        windowCharacterInfo.style.display = 'none'
+        showCharacterSelection.style.display = 'none';
+    }
+    if (buttonSettings.src.includes('assets/button/settings.png')) {
+        windowSettings.style.display = 'block';
+        showNameSettings.textContent = 'Name: ' + savedName;
+    }
+})
+
+const windowCharacterInfo = document.querySelector('.window-character-info');
+const showAvatar = document.getElementById('actual-avatar-settings');
+const showNameCharacter = document.querySelector('.text-character-info-name');
+const showWins = document.querySelector('.text-character-info-wins');
+const showDefeats = document.querySelector('.text-character-info-defeats');
+
+buttonCharacterInfo.addEventListener('click', () => {
+    if (windowSettings.style.display == 'block') {
+        windowSettings.style.display = 'none'
+    }
+    if (buttonCharacterInfo.src.includes('assets/button/character-info.png')) {
+        windowCharacterInfo.style.display = 'block';
+        showAvatar.src = savedAvatar;
+        showNameCharacter.textContent = 'Name: ' + savedName;
+        showWins.textContent = 'Wins: ';
+        showDefeats.textContent = 'Defeats: ';
+    }
+})
+
+// Изменение имени
+const buttonChangeName = document.getElementById('button-window-settings-change');
+const showInputNewName = document.querySelector('.hide-input-new-name');
+buttonChangeName.addEventListener('click', () => {
+    showNameSettings.style.display = 'none';
+    showInputNewName.style.display = 'block';
+})
+
+const buttonCloseChangeName = document.getElementById('button-window-settings-close');
+const hideInputNewName = document.querySelector('.window-settings');
+buttonCloseChangeName.addEventListener('click', () => {
+    showNameSettings.style.display = 'block';
+    showInputNewName.style.display = 'none';
+    hideInputNewName.style.display = 'none';
+})
+
+const buttonConfirmChangeName = document.getElementById('button-window-settings-confirm');
+const inputNewName = document.querySelector('.new-name');
+buttonConfirmChangeName.addEventListener('click', () => {
+    showNameSettings.style.display = 'block';
+    showInputNewName.style.display = 'none';
+    name = inputNewName.value.trim();
+    localStorage.setItem('name', name);
+})
+
+// Изменение аватарки

@@ -38,6 +38,110 @@ body {
     width: 100vw;
 }
 
+.window-settings {
+    position: absolute;
+    display: none;
+    background-color: #064f62;
+    border: #090609 solid 0.5vh;
+    height: 20vh;
+    width: 25vw;
+    margin: 3vh 0 0 1.4vw;
+}
+
+.window-character-info {
+    position: absolute;
+    display: none;
+    background-color: #064f62;
+    border: #090609 solid 0.5vh;
+    height: 43.3vh;
+    width: 32vw;
+    margin: 3vh 0 0 65vw;
+}
+
+.text-settings {
+    font-size: 4vh;
+    font-family: 'Impact', sans-serif;
+    margin-left: 0.5vw;
+}
+
+.text-character-info-name {
+    font-size: 4vh;
+    font-family: 'Impact', sans-serif;
+    margin: 0.5vh 0 0 16vw;
+}
+
+.text-character-info-wins {
+    font-size: 4vh;
+    font-family: 'Impact', sans-serif;
+    margin: 0.5vh 0 0 16vw;
+}
+
+.text-character-info-defeats {
+    font-size: 4vh;
+    font-family: 'Impact', sans-serif;
+    margin: 0.5vh 0 0 16vw;
+}
+
+#actual-avatar-settings {
+    max-width: 27.5vh;
+    margin: 1vh 0 0 0.5vw;
+}
+
+#button-window-character-confirm {
+    position: absolute;
+    margin: 15vh 0 0 17vw;
+    max-width: 11.7%;
+}
+
+#button-window-character-change {
+    position: absolute;
+    margin: 15.4vh 0 0 22.2vw;
+    max-width: 10%;
+}
+
+#button-window-character-close {
+    position: absolute;
+    margin: 15vh 0 0 27vw;
+    max-width: 11.5%;
+}
+
+#button-window-settings-confirm {
+    position: absolute;
+    margin: 6.8vh 0 0 0.3vw;
+    max-width: 17.4%;
+}
+
+#button-window-settings-change {
+    position: absolute;
+    margin: 7.4vh 0 0 5vw;
+    max-width: 15%;
+}
+
+#button-window-settings-close {
+    position: absolute;
+    margin: 7vh 0 0 9.2vw;
+    max-width: 17%;
+}
+
+.word-name {
+    display: flex;
+    background-color: #064f62;
+    font-size: 4vh;
+    font-family: 'Impact', sans-serif;
+}
+
+.new-name {
+    display: flex;
+    background-color: #064f62;
+    font-size: 3vh;
+    font-family: 'Impact', sans-serif;
+    margin: 0.4vh 0 0 1vw;
+}
+
+.hide-input-new-name {
+    display: none;
+}
+
 .register-container {
     position: absolute;
     background-color: #064f62;
@@ -59,6 +163,13 @@ h2 {
     font-family: 'Impact', sans-serif;
     color: #090609;
     margin: 4vh 0 0 2vw;
+}
+
+h3 {
+    font-size: 3vh;
+    font-family: 'Impact', sans-serif;
+    color: #090609;
+    margin: 0.2vh 0 0 0.4vw;
 }
 
 .register-name {
@@ -154,6 +265,7 @@ h2 {
     font-size: 6vh;
     font-family: 'Impact', sans-serif;
     color: #6A6A6A;
+    text-decoration: none;
 }
 
 
