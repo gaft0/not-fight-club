@@ -1,4 +1,3 @@
-// Ввод имени
 let name = '';
 let avatar = '';
 const inputName = document.querySelector('.register-name');
@@ -23,8 +22,6 @@ buttonConfirm.addEventListener('click', () => {
     }
 });
 
-
-// Выбор аватарки
 const buttonChoiceAvatar = document.querySelector('.register-change');
 const showCharacterSelection = document.querySelector('.hide-choice-avatar-container');
 
@@ -59,8 +56,6 @@ avatar5.addEventListener('click', () => {
     actualAvatar.src = 'assets/player-avatar/player-avatar-5.png';
 })
 
-
-// Проверка регистрации
 const hideRegister = document.querySelector('.register-container');
 const buttonIntoFight = document.querySelector('.fight');
 const buttonSettings = document.querySelector('.settings');
@@ -80,7 +75,8 @@ if (savedName) {
     });
 }
 
-// Кнопки настроеек и персонажа
+//////////////////////////////////////////////////////////////////////////////////////////
+
 const showNameSettings = document.querySelector('.text-settings');
 const windowSettings = document.querySelector('.window-settings');
 buttonSettings.addEventListener('click', () => {
@@ -93,6 +89,22 @@ buttonSettings.addEventListener('click', () => {
         showNameSettings.textContent = 'Name: ' + savedName;
     }
 })
+
+const mainBackground = document.querySelector('.menu-image');
+const fightPage = document.querySelector('.fight-container');
+buttonIntoFight.addEventListener('click', () => {
+    buttonIntoFight.src = 'assets/button/into-fight-unavailable.jpg';
+    buttonSettings.src = 'assets/button/settings-unavailable.png';
+    buttonCharacterInfo.src = 'assets/button/character-info-unavailable.png';
+    mainBackground.src = 'assets/background/fight.png';
+        footerText.forEach(text => {
+        text.style.color = '#064f62';
+    });
+    fightPage.style.display = 'block';
+    windowCharacterInfo.style.display = 'none';
+    windowSettings.style.display = 'none'
+    showCharacterSelection.style.display = 'none';
+});
 
 const windowCharacterInfo = document.querySelector('.window-character-info');
 const showAvatar = document.getElementById('actual-avatar-settings');
@@ -113,7 +125,6 @@ buttonCharacterInfo.addEventListener('click', () => {
     }
 })
 
-// Изменение имени
 const buttonChangeName = document.getElementById('button-window-settings-change');
 const showInputNewName = document.querySelector('.hide-input-new-name');
 buttonChangeName.addEventListener('click', () => {
@@ -139,8 +150,6 @@ buttonConfirmChangeName.addEventListener('click', () => {
     location.reload();
 })
 
-// Изменение аватарки
-
 const buttonChangeAvatar = document.getElementById('button-window-character-change');
 buttonChangeAvatar.addEventListener('click', () => {
     showCharacterSelection.style.display = 'block';
@@ -165,7 +174,6 @@ buttonConfirmChangeAvatar.addEventListener('click', () => {
     avatar = actualAvatarMenu.src;
     localStorage.setItem('avatar', avatar);
     showAvatar.src = avatar;
-    location.reload();
 })
 
 avatar1Menu.addEventListener('click', () => {
@@ -188,3 +196,5 @@ avatar5Menu.addEventListener('click', () => {
     actualAvatarMenu.src = 'assets/player-avatar/player-avatar-5.png';
 })
 
+
+// Не забыть заблокировать кнопку "В бой", если идет регистрация

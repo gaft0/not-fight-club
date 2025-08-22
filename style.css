@@ -241,17 +241,6 @@ h3 {
     margin: 2vh 0 0 0vw;
 }
 
-
-
-
-
-
-
-
-
-
-
-
 .footer {
     display: flex;
     align-items: center;
@@ -268,8 +257,77 @@ h3 {
     text-decoration: none;
 }
 
+.fight-container {
+    display: none;
+}
 
+.fight-container-avatar-player {
+    position: absolute;
+    background-color: #064f62;
+    border: #090609 solid 0.5vh;
+    height: 43.3vh;
+    width: 32vw;
+    margin: 3vh 0 0 2vw;
+}
 
+.fight-container-avatar-enemy {
+    position: absolute;
+    background-color: #064f62;
+    border: #090609 solid 0.5vh;
+    height: 43.3vh;
+    width: 32vw;
+    margin: 3vh 0 0 65.5vw;
+}
+
+.fight-container-control-panel {
+    display: flex;
+    position: absolute;
+    background-color: #064f62;
+    border: #090609 solid 0.5vh;
+    height: 19vh;
+    width: 32vw;
+    margin: 50vh 0 0 2vw;
+}
+
+.panel-attack {
+    list-style: none;
+    font-size: 3.5vh;
+    font-family: 'Impact', sans-serif;
+    margin: 0.8vh 0 0 -2vw;
+}
+
+.panel-defense {
+    list-style: none;
+    font-size: 3.5vh;
+    font-family: 'Impact', sans-serif;
+    margin: 0.8vh 0 0 16vw;
+}
+
+.log-sheet {
+    position: absolute;
+    background-color: #064f62;
+    border: #090609 solid 0.5vh;
+    height: 19vh;
+    width: 32vw;
+    margin: 50vh 0 0 65.5vw;
+}
+
+.fight-avatar {
+    position: absolute;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 90%;
+    max-width: auto;
+    margin: -16.7vh 0 0 1vw;
+}
+
+.fight-text {
+    position: relative;
+    font-size: 3.5vh;
+    font-family: 'Impact', sans-serif;
+    margin: 1.2vh 0 1.5vh 16vw;
+}
 
 @font-face {
   font-family: 'Impact';
@@ -278,3 +336,4 @@ h3 {
   font-style: normal;
   font-display: swap;
 }
+
