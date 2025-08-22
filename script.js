@@ -1,11 +1,12 @@
 // Ввод имени
 let name = '';
+let avatar = '';
 const inputName = document.querySelector('.register-name');
 const buttonConfirm = document.querySelector('.register-confirm');
 
 buttonConfirm.addEventListener('click', () => {
     name = inputName.value.trim();
-    const avatar = actualAvatar.src;
+    avatar = actualAvatar.src;
     if (name !== '') {
         localStorage.setItem('avatar', avatar);
         localStorage.setItem('name', name);
@@ -18,6 +19,7 @@ buttonConfirm.addEventListener('click', () => {
             text.style.color = '#BA0D80';
         });
         showAvatar.src = avatar;
+        location.reload();
     }
 });
 
@@ -39,7 +41,6 @@ const actualAvatar = document.getElementById('actual-avatar');
 
 avatar1.addEventListener('click', () => {
     actualAvatar.src = 'assets/player-avatar/player-avatar-1.png';
-    showAvatar.src = savedAvatar;
 })
 
 avatar2.addEventListener('click', () => {
@@ -135,6 +136,55 @@ buttonConfirmChangeName.addEventListener('click', () => {
     showInputNewName.style.display = 'none';
     name = inputNewName.value.trim();
     localStorage.setItem('name', name);
+    location.reload();
 })
 
 // Изменение аватарки
+
+const buttonChangeAvatar = document.getElementById('button-window-character-change');
+buttonChangeAvatar.addEventListener('click', () => {
+    showCharacterSelection.style.display = 'block';
+})
+
+const buttonCloseChangeAvatar = document.getElementById('button-window-character-close');
+buttonCloseChangeAvatar.addEventListener('click', () => {
+    showCharacterSelection.style.display = 'none';
+    windowCharacterInfo.style.display = 'none';
+})
+
+const avatar1Menu = document.getElementById('button-confirm-1-menu');
+const avatar2Menu = document.getElementById('button-confirm-2-menu');
+const avatar3Menu = document.getElementById('button-confirm-3-menu');
+const avatar4Menu = document.getElementById('button-confirm-4-menu');
+const avatar5Menu = document.getElementById('button-confirm-5-menu');
+const actualAvatarMenu = document.getElementById('actual-avatar');
+
+const buttonConfirmChangeAvatar = document.getElementById('button-window-character-confirm');
+buttonConfirmChangeAvatar.addEventListener('click', () => {
+    showCharacterSelection.style.display = 'none';
+    avatar = actualAvatarMenu.src;
+    localStorage.setItem('avatar', avatar);
+    showAvatar.src = avatar;
+    location.reload();
+})
+
+avatar1Menu.addEventListener('click', () => {
+    actualAvatarMenu.src = 'assets/player-avatar/player-avatar-1.png';
+})
+
+avatar2Menu.addEventListener('click', () => {
+    actualAvatarMenu.src = 'assets/player-avatar/player-avatar-2.png';
+})
+
+avatar3Menu.addEventListener('click', () => {
+    actualAvatarMenu.src = 'assets/player-avatar/player-avatar-3.png';
+})
+
+avatar4Menu.addEventListener('click', () => {
+    actualAvatarMenu.src = 'assets/player-avatar/player-avatar-4.png';
+})
+
+avatar5Menu.addEventListener('click', () => {
+    actualAvatarMenu.src = 'assets/player-avatar/player-avatar-5.png';
+})
+
