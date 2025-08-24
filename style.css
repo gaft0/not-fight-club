@@ -211,7 +211,7 @@ h3 {
     display: flex;
     background-color: #064f62;
     border: #090609 solid 0.5vh;
-    height: 51vh;
+    height: 43.3vh;
     width: 62vw;
     margin: 3vh 0 0 1.4vw;
 }
@@ -238,7 +238,7 @@ h3 {
     position: absolute;
     max-width: 6%;
     height: auto;
-    margin: 2vh 0 0 0vw;
+    margin: 31vh 0 0 -7.5vw;
 }
 
 .footer {
@@ -265,7 +265,7 @@ h3 {
     position: absolute;
     background-color: #064f62;
     border: #090609 solid 0.5vh;
-    height: 43.3vh;
+    height: 30vh;
     width: 32vw;
     margin: 3vh 0 0 2vw;
 }
@@ -274,9 +274,31 @@ h3 {
     position: absolute;
     background-color: #064f62;
     border: #090609 solid 0.5vh;
-    height: 43.3vh;
+    height: 30vh;
     width: 32vw;
     margin: 3vh 0 0 65.5vw;
+}
+
+.fight-container-another {
+    display: flex;
+    position: absolute;
+    background-color: #064f62;
+    border: #090609 solid 0.5vh;
+    height: 11vh;
+    width: 32vw;
+    margin: 36vh 0 0 2vw;
+}
+
+.button-start {
+    margin: 1.5vh 0 0 2.5vw;
+    max-width: 70%;
+    height: 70%;
+}
+
+.button-exit {
+    margin: 1.5vh 0 0 2.5vw;
+    max-width: 70%;
+    height: 70%;
 }
 
 .fight-container-control-panel {
@@ -293,14 +315,26 @@ h3 {
     list-style: none;
     font-size: 3.5vh;
     font-family: 'Impact', sans-serif;
-    margin: 0.8vh 0 0 -2vw;
+    margin: 0.8vh 0 0 -1vw;
 }
 
 .panel-defense {
     list-style: none;
     font-size: 3.5vh;
     font-family: 'Impact', sans-serif;
-    margin: 0.8vh 0 0 16vw;
+    margin: 0.8vh 0 0 -1.5vw;
+}
+
+.icon-attack {
+    margin: 0 0 0 1.5vw;
+    max-width: 10%;
+    height: auto;
+}
+
+.icon-defense {
+    margin: 0 0 0 8vw;
+    max-width: 11%;
+    height: auto;
 }
 
 .log-sheet {
@@ -326,7 +360,14 @@ h3 {
     position: relative;
     font-size: 3.5vh;
     font-family: 'Impact', sans-serif;
-    margin: 1.2vh 0 1.5vh 16vw;
+    margin: 1.2vh 0 1.5vh 11.5vw;
+}
+
+.info-text {
+    position: relative;
+    font-size: 4vh;
+    font-family: 'Impact', sans-serif;
+    margin: 1vh 0 0 0.5vw;
 }
 
 @font-face {

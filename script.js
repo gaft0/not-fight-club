@@ -1,5 +1,6 @@
 let name = '';
 let avatar = '';
+
 const inputName = document.querySelector('.register-name');
 const buttonConfirm = document.querySelector('.register-confirm');
 
@@ -75,8 +76,81 @@ if (savedName) {
     });
 }
 
-//////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
+const fightAvatar = document.getElementById('fight-avatar-player');
+fightAvatar.src = savedAvatar;
 
+const showFightNamePlayer = document.getElementById('fight-name-player');
+const showFightHPPlayer = document.getElementById('fight-hp-player');
+const showFightDamagePlayer = document.getElementById('fight-damage-player');
+showFightNamePlayer.textContent = 'Name: ' + savedName;
+const playerHP = 100;
+const playerDamage = 25;
+showFightHPPlayer.textContent = 'HP: ' + playerHP;
+showFightDamagePlayer.textContent = 'Damage: ' + playerDamage;
+
+const enemyArray = [
+    {
+        id: 1,
+        enemyName: 'Bot Pavel',
+        HP: 160,
+        Damage: 25,
+        attackZone: 1,
+        defenseZone: 0,
+        enemyAvatar: 'assets/enemy-avatar/enemy-avatar-1.png'
+    },
+    {
+        id: 2,
+        enemyName: 'Bot Fedor',
+        HP: 100,
+        Damage: 25,
+        attackZone: 1,
+        defenseZone: 2,
+        enemyAvatar: 'assets/enemy-avatar/enemy-avatar-2.png'
+    },
+    {
+        id: 3,
+        enemyName: 'Bot Boris',
+        HP: 130,
+        Damage: 40,
+        attackZone: 1,
+        defenseZone: 2,
+        enemyAvatar: 'assets/enemy-avatar/enemy-avatar-3.png'
+    },
+    {
+        id: 4,
+        enemyName: 'Bot Roman',
+        HP: 80,
+        Damage: 20,
+        attackZone: 2,
+        defenseZone: 2,
+        enemyAvatar: 'assets/enemy-avatar/enemy-avatar-4.png'
+    },
+    {
+        id: 5,
+        enemyName: 'Bot Gleb',
+        HP: 90,
+        Damage: 35,
+        attackZone: 1,
+        defenseZone: 1,
+        enemyAvatar: 'assets/enemy-avatar/enemy-avatar-5.png'
+    }
+];
+
+const showFightAvatarEnemy = document.getElementById('fight-avatar-enemy');
+const showFightNameEnemy = document.getElementById('fight-name-enemy');
+const showFightHPEnemy = document.getElementById('fight-hp-enemy');
+const showFightDamageEnemy = document.getElementById('fight-damage-enemy');
+
+let randomEnemySelection = Math.floor(Math.random() * enemyArray.length);
+let selectEnemy = randomEnemySelection;
+
+showFightAvatarEnemy.src = enemyArray[selectEnemy].enemyAvatar;
+showFightNameEnemy.textContent = 'Name: ' + enemyArray[selectEnemy].enemyName;
+showFightHPEnemy.textContent = 'HP: ' + enemyArray[selectEnemy].HP;
+showFightDamageEnemy.textContent = 'Damage: ' + enemyArray[selectEnemy].Damage;
+
+///////////////////////////////////////////////////////////////////////////////
 const showNameSettings = document.querySelector('.text-settings');
 const windowSettings = document.querySelector('.window-settings');
 buttonSettings.addEventListener('click', () => {
@@ -93,17 +167,19 @@ buttonSettings.addEventListener('click', () => {
 const mainBackground = document.querySelector('.menu-image');
 const fightPage = document.querySelector('.fight-container');
 buttonIntoFight.addEventListener('click', () => {
-    buttonIntoFight.src = 'assets/button/into-fight-unavailable.jpg';
-    buttonSettings.src = 'assets/button/settings-unavailable.png';
-    buttonCharacterInfo.src = 'assets/button/character-info-unavailable.png';
-    mainBackground.src = 'assets/background/fight.png';
-        footerText.forEach(text => {
-        text.style.color = '#064f62';
-    });
-    fightPage.style.display = 'block';
-    windowCharacterInfo.style.display = 'none';
-    windowSettings.style.display = 'none'
-    showCharacterSelection.style.display = 'none';
+    if (buttonIntoFight.src.includes('assets/button/into-fight.png')) {
+        buttonIntoFight.src = 'assets/button/into-fight-unavailable.jpg';
+        buttonSettings.src = 'assets/button/settings-unavailable.png';
+        buttonCharacterInfo.src = 'assets/button/character-info-unavailable.png';
+        mainBackground.src = 'assets/background/fight.png';
+            footerText.forEach(text => {
+            text.style.color = '#064f62';
+        });
+        fightPage.style.display = 'block';
+        windowCharacterInfo.style.display = 'none';
+        windowSettings.style.display = 'none'
+        showCharacterSelection.style.display = 'none';
+    }
 });
 
 const windowCharacterInfo = document.querySelector('.window-character-info');
@@ -174,6 +250,7 @@ buttonConfirmChangeAvatar.addEventListener('click', () => {
     avatar = actualAvatarMenu.src;
     localStorage.setItem('avatar', avatar);
     showAvatar.src = avatar;
+    location.reload();
 })
 
 avatar1Menu.addEventListener('click', () => {
@@ -197,4 +274,4 @@ avatar5Menu.addEventListener('click', () => {
 })
 
 
-// Не забыть заблокировать кнопку "В бой", если идет регистрация
+// Не забыть обновление страницы при начале боя

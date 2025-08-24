@@ -20,32 +20,22 @@
             <div class="choice-avatar-container">
                 <div class="avatar-container">
                     <img class="avatar" src="assets/player-avatar/player-avatar-1.png" alt="Avatar-1">
-                    <div class="text-stats">Hp:</div>
-                    <div class="text-stats">Damage:</div>
                     <img class="button-confirm" id="button-confirm-1" src="assets/button/register-confirm.png" alt="Confirm">
                 </div>
                 <div class="avatar-container">
                     <img class="avatar" src="assets/player-avatar/player-avatar-2.png" alt="Avatar-2">
-                    <div class="text-stats">Hp:</div>
-                    <div class="text-stats">Damage:</div>
                     <img class="button-confirm" id="button-confirm-2" src="assets/button/register-confirm.png" alt="Confirm">
                 </div>
                 <div class="avatar-container">
                     <img class="avatar" src="assets/player-avatar/player-avatar-3.png" alt="Avatar-3">
-                    <div class="text-stats">Hp:</div>
-                    <div class="text-stats">Damage:</div>
                     <img class="button-confirm" id="button-confirm-3" src="assets/button/register-confirm.png" alt="Confirm">
                 </div>
                 <div class="avatar-container">
                     <img class="avatar" src="assets/player-avatar/player-avatar-4.png" alt="Avatar-4">
-                    <div class="text-stats">Hp:</div>
-                    <div class="text-stats">Damage:</div>
                     <img class="button-confirm" id="button-confirm-4" src="assets/button/register-confirm.png" alt="Confirm">
                 </div>
                 <div class="avatar-container">
                     <img class="avatar" src="assets/player-avatar/player-avatar-5.png" alt="Avatar-5">
-                    <div class="text-stats">Hp:</div>
-                    <div class="text-stats">Damage:</div>
                     <img class="button-confirm" id="button-confirm-5" src="assets/button/register-confirm.png" alt="Confirm">
                 </div>
             </div>
@@ -77,36 +67,43 @@
             <img class="register-change" src="assets/button/register-change.png" alt="Change avatar">
             <img class="register-confirm" src="assets/button/register-confirm.png" alt="Confirm">
         </div>
-
+        
         <div class="fight-container">
             <div class="fight-container-avatar-player">
-                <div class="fight-text">Name: </div>
-                <div class="fight-text">HP:</div>
-                <div class="fight-text">Damage:</div>
-                <img class="fight-avatar" src="assets/player-avatar/player-avatar-1.png" alt="Your avatar">
+                <div class="fight-text" id="fight-name-player">Name</div>
+                <div class="fight-text" id="fight-hp-player">HP</div>
+                <div class="fight-text" id="fight-damage-player">Damage</div>
+                <img class="fight-avatar" id="fight-avatar-player" src="" alt="Your avatar">
+            </div>
+            <div class="fight-container-another">
+                <p class="info-text">Select 1 attack zone<br>and 2 defense zone</p>
+                <img class="button-start" src="assets/button/start-fight.png" alt="Start fight">
+                <img class="button-exit" src="assets/button/exit.png" alt="Exit">
             </div>
             <div class="fight-container-control-panel">
+                <img class="icon-attack" src="assets/icon/sword.svg" alt="Attack panel">
                 <ul class="panel-attack">
-                    <li>Head</li>
-                    <li>Torso</li>
-                    <li>Hands</li>
-                    <li>Legs</li>
+                    <li><input type="checkbox" name="attack" value="Head">Head</li>
+                    <li><input type="checkbox" name="attack" value="Body">Body</li>
+                    <li><input type="checkbox" name="attack" value="Hands">Hands</li>
+                    <li><input type="checkbox" name="attack" value="Legs">Legs</li>
                 </ul>
+                <img class="icon-defense" src="assets/icon/shield.svg" alt="Shield panel">
                 <ul class="panel-defense">
-                    <li>Head</li>
-                    <li>Torso</li>
-                    <li>Hands</li>
-                    <li>Legs</li>
+                    <li><input type="checkbox" name="defense" value="Head">Head</li>
+                    <li><input type="checkbox" name="defense" value="Body">Body</li>
+                    <li><input type="checkbox" name="defense" value="Hands">Hands</li>
+                    <li><input type="checkbox" name="defense" value="Legs">Legs</li>
                 </ul>
             </div>
             <div class="log-sheet">
 
             </div>
             <div class="fight-container-avatar-enemy">
-                <div class="fight-text">Name: </div>
-                <div class="fight-text">HP:</div>
-                <div class="fight-text">Damage:</div>
-                <img class="fight-avatar" src="assets/player-avatar/player-avatar-1.png" alt="Enemy avatar">
+                <div class="fight-text" id="fight-name-enemy">Name</div>
+                <div class="fight-text" id="fight-hp-enemy">HP</div>
+                <div class="fight-text" id="fight-damage-enemy">Damage</div>
+                <img class="fight-avatar" id="fight-avatar-enemy" src="" alt="Enemy avatar">
             </div>
         </div>
         <img class="menu-image" src="assets/background/menu.jpg" alt="Menu image">
