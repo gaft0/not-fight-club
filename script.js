@@ -76,7 +76,6 @@ if (savedName) {
     });
 }
 
-/////////////////////////////////////////////////////////////////////////////
 const fightAvatar = document.getElementById('fight-avatar-player');
 fightAvatar.src = savedAvatar;
 
@@ -84,14 +83,13 @@ const showFightNamePlayer = document.getElementById('fight-name-player');
 const showFightHPPlayer = document.getElementById('fight-hp-player');
 const showFightDamagePlayer = document.getElementById('fight-damage-player');
 showFightNamePlayer.textContent = 'Name: ' + savedName;
-const playerHP = 100;
+let playerHP = 100;
 const playerDamage = 25;
 showFightHPPlayer.textContent = 'HP: ' + playerHP;
 showFightDamagePlayer.textContent = 'Damage: ' + playerDamage;
 
 const enemyArray = [
     {
-        id: 1,
         enemyName: 'Bot Pavel',
         HP: 160,
         Damage: 25,
@@ -100,7 +98,6 @@ const enemyArray = [
         enemyAvatar: 'assets/enemy-avatar/enemy-avatar-1.png'
     },
     {
-        id: 2,
         enemyName: 'Bot Fedor',
         HP: 100,
         Damage: 25,
@@ -109,7 +106,6 @@ const enemyArray = [
         enemyAvatar: 'assets/enemy-avatar/enemy-avatar-2.png'
     },
     {
-        id: 3,
         enemyName: 'Bot Boris',
         HP: 130,
         Damage: 40,
@@ -118,16 +114,14 @@ const enemyArray = [
         enemyAvatar: 'assets/enemy-avatar/enemy-avatar-3.png'
     },
     {
-        id: 4,
         enemyName: 'Bot Roman',
         HP: 80,
-        Damage: 20,
-        attackZone: 2,
+        Damage: 25,
+        attackZone: 1,
         defenseZone: 2,
         enemyAvatar: 'assets/enemy-avatar/enemy-avatar-4.png'
     },
     {
-        id: 5,
         enemyName: 'Bot Gleb',
         HP: 90,
         Damage: 35,
@@ -150,7 +144,150 @@ showFightNameEnemy.textContent = 'Name: ' + enemyArray[selectEnemy].enemyName;
 showFightHPEnemy.textContent = 'HP: ' + enemyArray[selectEnemy].HP;
 showFightDamageEnemy.textContent = 'Damage: ' + enemyArray[selectEnemy].Damage;
 
-///////////////////////////////////////////////////////////////////////////////
+
+let totalWins = 0;
+let totalDefeats = 0;
+let stopGame = 0;
+const buttonStart = document.querySelector('.button-start');
+buttonStart.addEventListener('click', () => {
+    let blockAttack = 0;
+    const totalZone = 4;
+    let counter = 0;
+
+    const attackHead = document.getElementById('head-attack').checked;
+    const attackBody = document.getElementById('body-attack').checked;
+    const attackLegs = document.getElementById('legs-attack').checked;
+    const attackHands = document.getElementById('hands-attack').checked;
+    const attackZoneArray = [attackHead, attackBody, attackLegs, attackHands];
+
+    for (let i = 0; i < totalZone; i++) {
+        if(attackZoneArray[i] === true) {
+            counter++;
+        }
+    }
+    const totalAttackZone = 1;
+    if (counter !== totalAttackZone) {
+        blockAttack++;
+    }
+
+    const defenseHead = document.getElementById('head-defense').checked;
+    const defenseBody = document.getElementById('body-defense').checked;
+    const defenseLegs = document.getElementById('legs-defense').checked;
+    const defenseHands = document.getElementById('hands-defense').checked;
+    const defenseZoneArray = [defenseHead, defenseBody, defenseLegs, defenseHands];
+    let blockDefense = 0;
+    counter = 0;
+    for (let i = 0; i < totalZone; i++) {
+        if(defenseZoneArray[i] === true) {
+            counter++;
+        }
+    }
+    const totalDefenseZone = 2;
+    if (counter !== totalDefenseZone) {
+        blockDefense++;
+    }
+
+    const enemyAttack = [
+        {
+            nameZone: 'Head',
+            enemyAttack: false
+        },
+        {
+            nameZone: 'Body',
+            enemyAttack: false
+        },
+        {
+            nameZone: 'Legs',
+            enemyAttack: false
+        },
+        {
+            nameZone: 'Hands',
+            enemyAttack: false
+        }
+    ];
+
+    const enemyDefense = [
+        {
+            nameZone: 'Head',
+            enemyDefense: false
+        },
+        {
+            nameZone: 'Body',
+            enemyDefense: false
+        },
+        {
+            nameZone: 'Legs',
+            enemyDefense: false
+        },
+        {
+            nameZone: 'Hands',
+            enemyDefense: false
+        }
+    ];
+    if (blockAttack === 0 && blockDefense === 0 && stopGame === 0) {
+        const showPlayerLogs = document.querySelector('.log-sheet-player');
+        const showEnemyLogs = document.querySelector('.log-sheet-enemy');
+        for (let i = 0; i < enemyArray[selectEnemy].attackZone; i++) {
+            let randomZone = Math.floor(Math.random() * enemyAttack.length);
+            enemyAttack[randomZone].enemyAttack = true;
+        }
+        for (let i = 0; i < enemyArray[selectEnemy].attackZone; i++) {
+            let randomZone = Math.floor(Math.random() * enemyDefense.length);
+            enemyDefense[randomZone].enemyDefense = true;
+        }
+
+        for (let i = 0; i < totalZone; i++) {
+            if(attackZoneArray[i] === true) {
+                if (attackZoneArray[i] !== enemyDefense[i].enemyDefense) {
+                    enemyArray[selectEnemy].HP -= playerDamage;
+                    showFightHPEnemy.textContent = 'HP: ' + enemyArray[selectEnemy].HP;
+                    showPlayerLogs.innerHTML = `<span style="color: #BA0D80;">${savedName}</span> hit <span style="color: #BA0D80;">${enemyArray[selectEnemy].enemyName}</span> on the <span style="color: #BA0D80;">${enemyDefense[i].nameZone}</span> and dealt <span style="color: #BA0D80;">${playerDamage} damage.`
+                }
+                else {
+                    showPlayerLogs.innerHTML = `<span style="color: #BA0D80;">${savedName}</span> hit <span style="color: #BA0D80;">${enemyArray[selectEnemy].enemyName}</span> on the <span style="color: #BA0D80;">${enemyAttack[i].nameZone}</span>, but he dodged.`
+                }
+            }
+        }
+        for (let i = 0; i < totalZone; i++) {
+            if(enemyAttack[i].enemyAttack === true) {
+                if (enemyAttack[i].enemyAttack !== defenseZoneArray[i]) {
+                    playerHP -= enemyArray[selectEnemy].Damage;
+                    showFightHPPlayer.textContent = 'HP: ' + playerHP;
+                    showEnemyLogs.innerHTML = `<span style="color: #BA0D80;">${enemyArray[selectEnemy].enemyName}</span> hit <span style="color: #BA0D80;">${savedName}</span> on the <span style="color: #BA0D80;">${enemyAttack[selectEnemy].nameZone}</span> and dealt <span style="color: #BA0D80;">${enemyArray[selectEnemy].Damage} damage.`
+                }
+                else {
+                    showEnemyLogs.innerHTML = `<span style="color: #BA0D80;">${enemyArray[selectEnemy].enemyName}</span> hit <span style="color: #BA0D80;">${savedName}</span> on the <span style="color: #BA0D80;">${enemyDefense[i].nameZone}</span>, but he dodged.`
+                }
+            }
+        }
+        if (enemyArray[selectEnemy].HP <= 0) {
+            showPlayerLogs.textContent = 'You won! Press the exit button.';
+            showEnemyLogs.textContent = '';
+            stopGame++;
+            totalWins++;
+            localStorage.setItem('totalWins', totalWins);
+        }
+        if (playerHP <= 0) {
+            showPlayerLogs.textContent = 'You lost! Press the exit button.';
+            showEnemyLogs.textContent = '';
+            stopGame++;
+            totalDefeats++;
+            localStorage.setItem('totalDefeats', totalDefeats);
+        }
+        if (playerHP <= 0 && enemyArray[selectEnemy].HP <= 0) {
+            showPlayerLogs.textContent = 'Draw! Press the exit button.';
+            showEnemyLogs.textContent = '';
+            stopGame++;
+        }
+    }
+
+})
+
+const buttonExit = document.querySelector('.button-exit');
+buttonExit.addEventListener('click', () => {
+    location.reload();
+})
+
 const showNameSettings = document.querySelector('.text-settings');
 const windowSettings = document.querySelector('.window-settings');
 buttonSettings.addEventListener('click', () => {
@@ -188,6 +325,9 @@ const showNameCharacter = document.querySelector('.text-character-info-name');
 const showWins = document.querySelector('.text-character-info-wins');
 const showDefeats = document.querySelector('.text-character-info-defeats');
 
+
+const savedWins = localStorage.getItem('totalWins');
+const savedDefeats = localStorage.getItem('totalDefeats');
 buttonCharacterInfo.addEventListener('click', () => {
     if (windowSettings.style.display == 'block') {
         windowSettings.style.display = 'none'
@@ -196,8 +336,8 @@ buttonCharacterInfo.addEventListener('click', () => {
         windowCharacterInfo.style.display = 'block';
         showAvatar.src = savedAvatar;
         showNameCharacter.textContent = 'Name: ' + savedName;
-        showWins.textContent = 'Wins: ';
-        showDefeats.textContent = 'Defeats: ';
+        showWins.textContent = 'Wins: ' + savedWins;
+        showDefeats.textContent = 'Defeats: ' + savedDefeats;
     }
 })
 
@@ -272,6 +412,3 @@ avatar4Menu.addEventListener('click', () => {
 avatar5Menu.addEventListener('click', () => {
     actualAvatarMenu.src = 'assets/player-avatar/player-avatar-5.png';
 })
-
-
-// Не забыть обновление страницы при начале боя

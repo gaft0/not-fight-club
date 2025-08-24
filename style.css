@@ -337,13 +337,25 @@ h3 {
     height: auto;
 }
 
-.log-sheet {
+.log-sheet-container {
     position: absolute;
     background-color: #064f62;
     border: #090609 solid 0.5vh;
     height: 19vh;
     width: 32vw;
     margin: 50vh 0 0 65.5vw;
+}
+
+.log-sheet-player {
+    margin: 1vh 0 0 1vw;
+    font-size: 3vh;
+    font-family: 'Impact', sans-serif;
+}
+
+.log-sheet-enemy {
+    margin: 1vh 0 2vh 1vw;
+    font-size: 3vh;
+    font-family: 'Impact', sans-serif;
 }
 
 .fight-avatar {
