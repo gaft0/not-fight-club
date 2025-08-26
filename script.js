@@ -359,11 +359,13 @@ buttonCloseChangeName.addEventListener('click', () => {
 const buttonConfirmChangeName = document.getElementById('button-window-settings-confirm');
 const inputNewName = document.querySelector('.new-name');
 buttonConfirmChangeName.addEventListener('click', () => {
-    showNameSettings.style.display = 'block';
-    showInputNewName.style.display = 'none';
-    name = inputNewName.value.trim();
-    localStorage.setItem('name', name);
-    location.reload();
+    if (inputNewName.value) {
+        showNameSettings.style.display = 'block';
+        showInputNewName.style.display = 'none';
+        name = inputNewName.value.trim();
+        localStorage.setItem('name', name);
+        location.reload();
+    }
 })
 
 const buttonChangeAvatar = document.getElementById('button-window-character-change');
